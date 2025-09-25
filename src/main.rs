@@ -3,15 +3,27 @@ enum Coin {
     Penny,
     Nickel,
     Dime,
-    Quarter,
+    Quarter(USState),
+}
+
+#[derive(Debug)]
+enum USState {
+    Alabama,
+    Alaska,
 }
 
 fn value_in_cents(coin: Coin) -> u8 {
     match coin {
-        Coin::Penny => 1,
+        Coin::Penny => {    // 如果这里是多行的代码块，那就需要使用花括号括起来，有点像匿名函数
+            println!("this is a penny!");
+            1
+        },
         Coin::Nickel => 5,
         Coin::Dime => 10,
-        Coin::Quarter => 25,
+        Coin::Quarter(state) => {
+            println!("{:?}!", state);
+            25
+        },
     }
 }
 
@@ -22,6 +34,8 @@ fn main() {
     println!("{}", value_in_cents(nickel));
     let dime = Coin::Dime;
     println!("{}", value_in_cents(dime));
-    let quarter = Coin::Quarter;
+    let quarter = Coin::Quarter(USState::Alabama);
+    println!("{}", value_in_cents(quarter));
+    let quarter = Coin::Quarter(USState::Alaska);
     println!("{}", value_in_cents(quarter));
 }
