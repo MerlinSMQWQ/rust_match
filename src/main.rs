@@ -52,4 +52,11 @@ fn main() {
     let none = push_one(None);
     println!("{:?}", five);
     println!("{:?}", none);
+
+    // match必须包含所有情况，为了方便，match也可以有默认处理
+    let x = 0u8;
+    match x {
+        1 => println!("1"),
+        _ => println!("{}", x), // 默认情况处理
+    }
 }
