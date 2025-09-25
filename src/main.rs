@@ -57,6 +57,6 @@ fn main() {
     let x = 0u8;
     match x {
         1 => println!("1"),
-        _ => println!("{}", x), // 默认情况处理
+        _ => println!("{}", x), // 默认情况处理，放在最后面
     }
 }
