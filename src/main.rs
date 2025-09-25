@@ -61,7 +61,9 @@ fn main() {
     }
 
     // 为了更简单地进行匹配，rust还有if let语句，如果只要匹配一种情况，if let可以用更少的代码，达到同样的目的(可以讲if let看做match的一个语法糖，match更通用)
-    if let 0 = x {  // 这里和正常的逻辑有点不一样，是反着的
+    if let 1 = x {  // 这里和正常的逻辑有点不一样，是反着的
+        println!("1");
+    } else {
         println!("{x}");
     }
 }
