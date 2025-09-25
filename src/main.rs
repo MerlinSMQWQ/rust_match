@@ -27,6 +27,14 @@ fn value_in_cents(coin: Coin) -> u8 {
     }
 }
 
+// 对于Option<T>，我们也可以使用match
+fn push_one(x: Option<i32>) -> Option<i32> {
+    match x {
+        None => None,
+        Some(i) => Some(i+1),
+    }
+}
+
 fn main() {
     let penny = Coin::Penny;
     println!("{}", value_in_cents(penny));
@@ -38,4 +46,10 @@ fn main() {
     println!("{}", value_in_cents(quarter));
     let quarter = Coin::Quarter(USState::Alaska);
     println!("{}", value_in_cents(quarter));
+
+
+    let five = push_one(Some(5));
+    let none = push_one(None);
+    println!("{:?}", five);
+    println!("{:?}", none);
 }
